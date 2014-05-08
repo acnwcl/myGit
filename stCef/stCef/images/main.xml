@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window size="990,660" caption="0,0,0,38" mininfo="895,500" roundcorner="1,1">
+  <Font name="宋体" size="13" bold="true" />
+  <Font name="宋体" size="12" bold="true" />
+  <Font name="宋体" size="12" />
+  <Font name="宋体" size="14" bold="true" />
+  <Font name="宋体" size="22" bold="true" italic="true"/>
+  
+  <VerticalLayout name="main">
+
+    <!-- caption -->
+    <HorizontalLayout name="caption" height="53" padding="1,1,1,0">
+
+      <HorizontalLayout name="tab">
+        <!-- 
+        <Option name="op1" text="新标签" group="true" userdata="1" maxwidth="102" maxheight="45" padding="50,8,0,0" bkcolor="#FF00ff00" selectedbkcolor="#FF123456" selectedtextcolor="#FFff0000" selected="true"/>
+        -->
+        <Button name="addtab" tooltip="打开" width="30" normalimage="file='buttons.png' source='0,0,20,20' dest='5,15,25,35'" hotimage="file='buttons.png' source='20,0,40,20' dest='5,15,25,35'" pushedimage="file='buttons.png' source='40,0,60,20' dest='5,15,25,35'"/>
+      </HorizontalLayout>
+      
+      <HorizontalLayout name="buttonContainer" width="150">
+        
+        <Button name="top" tooltip="置顶" width="30" normalimage="file='buttons.png' source='0,60,20,80' dest='5,15,25,35'" hotimage="file='buttons.png' source='20,60,40,80' dest='5,15,25,35'" pushedimage="file='buttons.png' source='40,60,60,80' dest='5,15,25,35'"/>
+        <Button name="restoretop" tooltip="取消置顶" width="30" normalimage="file='buttons.png' source='0,80,20,100' dest='5,15,25,35'" hotimage="file='buttons.png' source='20,80,40,100' dest='5,15,25,35'" pushedimage="file='buttons.png' source='40,80,60,100' dest='5,15,25,35'" visible="false"/>
+        <Button name="setting" tooltip="设置" width="30" normalimage="file='buttons.png' source='0,160,20,180' dest='5,15,25,35'" hotimage="file='buttons.png' source='20,160,40,180' dest='5,15,25,35'" pushedimage="file='buttons.png' source='40,160,60,180' dest='5,15,25,35'"/>
+        <Button name="min" tooltip="最小化" width="30" normalimage="file='buttons.png' source='0,100,20,120' dest='5,15,25,35'" hotimage="file='buttons.png' source='20,100,40,120' dest='5,15,25,35'" pushedimage="file='buttons.png' source='40,100,60,120' dest='5,15,25,35'"/>
+        <Button name="max" tooltip="最大化" width="30" normalimage="file='buttons.png' source='0,20,20,40' dest='5,15,25,35'" hotimage="file='buttons.png' source='20,20,40,40' dest='5,15,25,35'" pushedimage="file='buttons.png' source='40,20,60,40' dest='5,15,25,35'"/>
+        <Button name="restore" tooltip="还原" width="30" normalimage="file='buttons.png' source='0,40,20,60' dest='5,15,25,35'" hotimage="file='buttons.png' source='20,40,40,60' dest='5,15,25,35'" pushedimage="file='buttons.png' source='40,40,60,60' dest='5,15,25,35'" visible="false"/>
+        <Button name="close" tooltip="关闭" width="30" normalimage="file='buttons.png' source='0,0,20,20' dest='5,15,25,35'" hotimage="file='buttons.png' source='20,0,40,20' dest='5,15,25,35'" pushedimage="file='buttons.png' source='40,0,60,20' dest='5,15,25,35'"/>
+        
+      </HorizontalLayout>
+    </HorizontalLayout>
+
+    <!-- content -->
+    <VerticalLayout name="content">
+      
+      <HorizontalLayout name="tool" height="53" bkcolor="0xFFc0c0c0">
+        <Edit name="url" padding="10,10,0,10" bkcolor="0xFFffffff" bordercolor="0xFF8000FF" readonly="false" numonly="false" password="false"/>
+        <Button name="go" padding="10,10,0,10" text="go" width="60" bordercolor="0xFF8000FF"/>
+      </HorizontalLayout>
+
+      <TabLayout name="tabView" bordersize="1" bordercolor="0xFF8000FF"></TabLayout>
+    </VerticalLayout>
+
+    <!-- status -->
+    <HorizontalLayout name="status" height="33" bordersize="1" bordercolor="0xFF1A1A1A" padding="1,0,1,0">
+      <HorizontalLayout width="120">
+        <Text textcolor="0xFF7F7F7F" text="老板键：CTRL + ~" textpadding="10,10,0,0" mouse="false" />
+      </HorizontalLayout>
+
+      <HorizontalLayout name="adctn">
+      </HorizontalLayout>
+
+      <HorizontalLayout width="120">
+        <Button name="btnupdate" tooltip="检查更新" padding="0,7,0,0" width="20" maxheight="20" normalimage="file='buttons.png' source='0,180,20,200'" hotimage="file='buttons.png' source='20,180,40,200'" pushedimage="file='buttons.png' source='40,180,60,200'" />
+        <Text name="version" text="1.0" textcolor="0xFF7F7F7F" padding="2,12,20,0"/>
+      </HorizontalLayout>
+    </HorizontalLayout>
+    
+  </VerticalLayout>
+  
+</Window>

@@ -13,6 +13,21 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="image">
+      <UniqueIdentifier>{495cc694-6a58-4a17-b5cb-e7a473b7a91d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dlib">
+      <UniqueIdentifier>{8324bec9-78a3-4487-b373-c9000cac9c81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug">
+      <UniqueIdentifier>{9d912232-2964-4180-85cb-c911d9515f3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug\skin">
+      <UniqueIdentifier>{8a55eebf-d735-4fd4-98d7-250c233822f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug\locales">
+      <UniqueIdentifier>{4978ffef-545d-4867-a2ee-6a180316f179}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -122,5 +137,46 @@
     <None Include="images\menumark.png">
       <Filter>资源文件</Filter>
     </None>
+    <None Include="images\AddFile.exe">
+      <Filter>image</Filter>
+    </None>
+    <None Include="images\buttons.png">
+      <Filter>image</Filter>
+    </None>
+    <None Include="images\little.png">
+      <Filter>image</Filter>
+    </None>
+    <None Include="images\main.xml">
+      <Filter>image</Filter>
+    </None>
+    <None Include="images\x.ini">
+      <Filter>image</Filter>
+    </None>
+    <None Include="..\Debug\cef.pak">
+      <Filter>Debug</Filter>
+    </None>
+    <None Include="..\Debug\icudt.dll">
+      <Filter>Debug</Filter>
+    </None>
+    <None Include="..\Debug\libcef.dll">
+      <Filter>Debug</Filter>
+    </None>
+    <None Include="..\Debug\locales\zh-CN.pak">
+      <Filter>Debug\locales</Filter>
+    </None>
+    <None Include="..\Debug\skin\skin.sk">
+      <Filter>Debug\skin</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\dlib\libcef.lib">
+      <Filter>dlib</Filter>
+    </Library>
+    <Library Include="..\dlib\libcef_dll_wrapper.lib">
+      <Filter>dlib</Filter>
+    </Library>
+    <Library Include="..\dlib\UILIB_LIB.lib">
+      <Filter>dlib</Filter>
+    </Library>
   </ItemGroup>
 </Project>

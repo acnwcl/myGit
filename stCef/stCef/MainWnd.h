@@ -40,6 +40,7 @@ public:
 	LRESULT OnNcHitTest(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 	LRESULT OnSize(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 	LRESULT OnGetMinMaxInfo(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
+	LRESULT OnLButtonDown(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 
 	//menu
 	LRESULT OnMin(DWORD hWrod, DWORD lWord, HWND hWnd, BOOL& bHandled);
@@ -54,6 +55,7 @@ public:
 		MESSAGE_HANDLER_DIRECT(WM_NCHITTEST, OnNcHitTest)
 		MESSAGE_HANDLER_DIRECT(WM_SIZE, OnSize)
 		MESSAGE_HANDLER_DIRECT(WM_GETMINMAXINFO, OnGetMinMaxInfo)
+		MESSAGE_HANDLER_DIRECT(WM_LBUTTONDOWN, OnLButtonDown)
 		//menu
 		MESSAGE_HANDLER_DIRECT(WM_INITMENUPOPUP, OnInitMenuPopup)
 		MESSAGE_HANDLER_DIRECT(WM_MENUSELECT, OnMenuSelect)
@@ -69,10 +71,12 @@ public:
 
 	void OnClick(TNotifyUI& msg);
 	void OnSelectChanged(TNotifyUI& msg);
+	void OnHeaderClick(TNotifyUI& msg);
 
 	BEGIN_NOTIFY_MAP_DIRECT(this)
 		NOTIFY_HANDLER_DIRECT(MST_CLICK, OnClick)
 		NOTIFY_HANDLER_DIRECT(MST_SELECTCHANGED, OnSelectChanged)
+		NOTIFY_HANDLER_DIRECT(MST_HEADERCLICK, OnHeaderClick)
 	END_NOTIFY_MAP_DIRECT
 
 	////////////////////////////////////////////////////////////////////////////////////
@@ -83,6 +87,7 @@ private:
 	CHorizontalLayoutUI *m_hlConent,*m_hlTab,*m_hlTool;
 	CTabLayoutUI *m_tabView;
 	COptionUI *m_op1;
+	CEditUI *m_editUrl;
 	bool m_bIsTop;
 	int m_iOpCount,m_iOpCurrent;
 

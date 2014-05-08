@@ -19,8 +19,8 @@ CMainWnd::CMainWnd()
 	m_hlTool = NULL;
 
 	m_tabView = NULL;
-
 	m_op1 = NULL;
+	m_editUrl = NULL;
 
 	m_iOpCount = 0;
 	m_iOpCurrent = 0;
@@ -35,8 +35,6 @@ CMainWnd::CMainWnd()
 CMainWnd::~CMainWnd()
 {
 }
-
-
 
 void CMainWnd::Init()
 {
@@ -55,8 +53,8 @@ void CMainWnd::Init()
 	m_hlTool = static_cast<CHorizontalLayoutUI*>(m_pm.FindControl(_T("tool")));
 
 	m_tabView = static_cast<CTabLayoutUI*>(m_pm.FindControl(_T("tabView")));
-
 	m_op1 = static_cast<COptionUI*>(m_pm.FindControl(_T("op1")));
+	m_editUrl = static_cast<CEditUI*>(m_pm.FindControl(_T("url")));
 
 	// menu
 	GetSystemSettings();
@@ -175,6 +173,11 @@ LRESULT CMainWnd::OnGetMinMaxInfo(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL&
 
 	//bHandled = TRUE;
 	return 0;
+}
+LRESULT CMainWnd::OnLButtonDown(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
+{
+	bHandled = FALSE;
+	return 1;
 }
 
 // menu
@@ -342,4 +345,8 @@ void CMainWnd::OnSelectChanged(TNotifyUI& msg)
 {
 	m_iOpCurrent = m_hlTab->GetItemIndex(msg.pSender);
 	m_tabView->SelectItem(m_iOpCurrent);
+}
+void CMainWnd::OnHeaderClick(TNotifyUI& msg)
+{
+
 }

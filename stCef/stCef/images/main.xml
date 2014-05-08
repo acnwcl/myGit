@@ -10,7 +10,7 @@
 
     <!-- caption -->
     <HorizontalLayout name="caption" height="53" padding="1,1,1,0">
-
+      
       <HorizontalLayout name="tab">
         <!-- 
         <Option name="op1" text="新标签" group="true" userdata="1" maxwidth="102" maxheight="45" padding="50,8,0,0" bkcolor="#FF00ff00" selectedbkcolor="#FF123456" selectedtextcolor="#FFff0000" selected="true"/>
@@ -56,7 +56,7 @@
         <Text name="version" text="1.0" textcolor="0xFF7F7F7F" padding="2,12,20,0"/>
       </HorizontalLayout>
     </HorizontalLayout>
-    
+
   </VerticalLayout>
   
 </Window>

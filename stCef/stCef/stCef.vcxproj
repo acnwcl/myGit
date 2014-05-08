@@ -130,8 +130,23 @@
     <Image Include="stCef.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\Debug\cef.pak" />
+    <None Include="..\Debug\icudt.dll" />
+    <None Include="..\Debug\libcef.dll" />
+    <None Include="..\Debug\locales\zh-CN.pak" />
+    <None Include="..\Debug\skin\skin.sk" />
+    <None Include="images\AddFile.exe" />
+    <None Include="images\buttons.png" />
+    <None Include="images\little.png" />
+    <None Include="images\main.xml" />
     <None Include="images\menu.png" />
     <None Include="images\menumark.png" />
+    <None Include="images\x.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\dlib\libcef.lib" />
+    <Library Include="..\dlib\libcef_dll_wrapper.lib" />
+    <Library Include="..\dlib\UILIB_LIB.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

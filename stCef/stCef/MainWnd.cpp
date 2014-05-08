@@ -36,6 +36,8 @@ CMainWnd::~CMainWnd()
 {
 }
 
+
+
 void CMainWnd::Init()
 {
 	m_btnTop = static_cast<CButtonUI*>(m_pm.FindControl(_T("top")));

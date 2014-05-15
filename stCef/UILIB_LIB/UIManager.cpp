@@ -1734,6 +1734,23 @@ CControlUI* CALLBACK CPaintManagerUI::__FindControlFromUpdate(CControlUI* pThis,
     return pThis->IsUpdateNeeded() ? pThis : NULL;
 }
 
+void CPaintManagerUI::SetCapture()
+{
+	::SetCapture(m_hWndPaint);
+	m_bMouseCapture = true;
+}
+
+void CPaintManagerUI::ReleaseCapture()
+{
+	::ReleaseCapture();
+	m_bMouseCapture = false;
+}
+
+bool CPaintManagerUI::IsCaptured()
+{
+	return m_bMouseCapture;
+}
+
 /////////////////////////////////////////////////////////////////////////////////////
 //
 //
@@ -1819,6 +1836,83 @@ void CControlUI::SetManager(CPaintManagerUI* pManager, CControlUI* pParent)
 CControlUI* CControlUI::GetParent() const
 {
     return m_pParent;
+}
+
+//
+//void CControlUI::Event(TEventUI& event)
+//{
+//    if( event.Type == UIEVENT_SETCURSOR )
+//    {
+//        ::SetCursor(::LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW)));
+//        return;
+//    }
+//    if( event.Type == UIEVENT_SETFOCUS ) 
+//    {
+//        m_bFocused = true;
+//        Invalidate();
+//        return;
+//    }
+//    if( event.Type == UIEVENT_KILLFOCUS ) 
+//    {
+//        m_bFocused = false;
+//        Invalidate();
+//        return;
+//    }
+//    if( event.Type == UIEVENT_TIMER )
+//    {
+//        m_pManager->SendNotify(this, MST_TIMER, event.wParam, event.lParam);
+//        return;
+//    }
+//    if( m_pParent != NULL ) m_pParent->Event(event);
+//}
+
+void CControlUI::Event(TEventUI& event)
+{
+	if (OnEvent(&event)) DoEvent(event);
+}
+
+void CControlUI::DoEvent(TEventUI& event)
+{
+	if (event.Type == UIEVENT_SETCURSOR)
+	{
+		::SetCursor(::LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW)));
+		return;
+	}
+	if (event.Type == UIEVENT_SETFOCUS)
+	{
+		m_bFocused = true;
+		Invalidate();
+		return;
+	}
+	if (event.Type == UIEVENT_KILLFOCUS)
+	{
+		m_bFocused = false;
+		Invalidate();
+		return;
+	}
+	if (event.Type == UIEVENT_TIMER)
+	{
+		m_pManager->SendNotify(this, MST_TIMER, event.wParam, event.lParam);
+		return;
+	}
+	if (event.Type == UIEVENT_CONTEXTMENU)
+	{
+		if (IsContextMenuUsed()) {
+			m_pManager->SendNotify(this, MST_MENU, event.wParam, event.lParam);
+			return;
+		}
+	}
+	if (m_pParent != NULL) m_pParent->DoEvent(event);
+}
+
+bool CControlUI::IsContextMenuUsed() const
+{
+	return m_bMenuUsed;
+}
+
+void CControlUI::SetContextMenuUsed(bool bMenuUsed)
+{
+	m_bMenuUsed = bMenuUsed;
 }
 
 CStdString CControlUI::GetText() const
@@ -2292,33 +2386,6 @@ void CControlUI::NeedParentUpdate()
     }
 
     if( m_pManager != NULL ) m_pManager->NeedUpdate();
-}
-
-void CControlUI::Event(TEventUI& event)
-{
-    if( event.Type == UIEVENT_SETCURSOR )
-    {
-        ::SetCursor(::LoadCursor(NULL, MAKEINTRESOURCE(IDC_ARROW)));
-        return;
-    }
-    if( event.Type == UIEVENT_SETFOCUS ) 
-    {
-        m_bFocused = true;
-        Invalidate();
-        return;
-    }
-    if( event.Type == UIEVENT_KILLFOCUS ) 
-    {
-        m_bFocused = false;
-        Invalidate();
-        return;
-    }
-    if( event.Type == UIEVENT_TIMER )
-    {
-        m_pManager->SendNotify(this, MST_TIMER, event.wParam, event.lParam);
-        return;
-    }
-    if( m_pParent != NULL ) m_pParent->Event(event);
 }
 
 void CControlUI::SetAttribute(LPCTSTR pstrName, LPCTSTR pstrValue)

@@ -9,7 +9,7 @@
   <VerticalLayout name="main">
 
     <!-- caption -->
-    <HorizontalLayout name="caption" height="53" padding="1,1,1,0">
+    <HorizontalLayout name="caption" height="53" bkcolor="0xFF490761" padding="1,1,1,0">
       
       <HorizontalLayout name="tab">
         <!-- 
@@ -35,7 +35,8 @@
     <VerticalLayout name="content">
       
       <HorizontalLayout name="tool" height="53" bkcolor="0xFFc0c0c0">
-        <Edit name="url" padding="10,10,0,10" bkcolor="0xFFffffff" bordercolor="0xFF8000FF" readonly="false" numonly="false" password="false"/>
+        <RichEdit name="testrichedit" bordercolor="#FF0000" bordersize="0" borderround="18,18" inset="4,2,4,2" bkcolor="#A0F2F5FA" bkcolor2="#A0FF0000" bkcolor3="#A0F2F5FA" font="1" multiline="true" vscrollbar="true" autovscroll="true" enabled="true" rich="true" readonly="false" text="1爱3" />
+        <Edit name="url" text="http://www.baidu.com" padding="10,10,0,10" bkcolor="0xFFffffff" bordercolor="0xFF8000FF" readonly="false" numonly="false" password="false"/>
         <Button name="go" padding="10,10,0,10" text="go" width="60" bordercolor="0xFF8000FF"/>
       </HorizontalLayout>
 
@@ -43,7 +44,7 @@
     </VerticalLayout>
 
     <!-- status -->
-    <HorizontalLayout name="status" height="33" bordersize="1" bordercolor="0xFF1A1A1A" padding="1,0,1,0">
+    <HorizontalLayout name="status" height="33" bkcolor="0xFF490761" bordersize="1" bordercolor="0xFF1A1A1A" padding="1,0,1,0">
       <HorizontalLayout width="120">
         <Text textcolor="0xFF7F7F7F" text="老板键：CTRL + ~" textpadding="10,10,0,0" mouse="false" />
       </HorizontalLayout>

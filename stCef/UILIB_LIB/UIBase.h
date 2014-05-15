@@ -30,6 +30,7 @@ namespace UILIB_LIB
 #define MST_CONTEXTMENU		20
 #define MST_ITEMRCLICK		21
 #define MST_RETURN			22
+#define MST_MENU			23
 
 	/////////////////////////////////////////////////////////////////////////////////////
 	//

@@ -52,16 +52,21 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;UILIB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <UseUnicodeForAssemblerListing>true</UseUnicodeForAssemblerListing>
+      <StringPooling>false</StringPooling>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalDependencies>Riched20.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
     <PostBuildEvent>
       <Command>copy /b "$(TargetPath)" "$(SolutionDir)bin"</Command>
@@ -98,6 +103,7 @@
     <ClCompile Include="UICombo.cpp" />
     <ClCompile Include="UIComonControls.cpp" />
     <ClCompile Include="UIContainer.cpp" />
+    <ClCompile Include="UIDelegate.cpp" />
     <ClCompile Include="UIDlgBuilder.cpp" />
     <ClCompile Include="UIHtmlCtrl.cpp" />
     <ClCompile Include="UIlib.cpp" />
@@ -105,6 +111,7 @@
     <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="UIMarkup.cpp" />
     <ClCompile Include="UIRender.cpp" />
+    <ClCompile Include="UIRichEdit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MenuUI.h" />
@@ -116,6 +123,7 @@
     <ClInclude Include="UICombo.h" />
     <ClInclude Include="UIComonControls.h" />
     <ClInclude Include="UIContainer.h" />
+    <ClInclude Include="UIDelegate.h" />
     <ClInclude Include="UIDlgBuilder.h" />
     <ClInclude Include="UIHtmlCtrl.h" />
     <ClInclude Include="UIlib.h" />
@@ -123,6 +131,7 @@
     <ClInclude Include="UIManager.h" />
     <ClInclude Include="UIMarkup.h" />
     <ClInclude Include="UIRender.h" />
+    <ClInclude Include="UIRichEdit.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="UILIB_LIB.rc" />

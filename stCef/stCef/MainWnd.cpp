@@ -61,6 +61,9 @@ void CMainWnd::Init()
 	m_PngImageList = GetImage(IDB_MENU);
 
 	m_pm.SendNotify(m_btnAddTab, MST_CLICK);
+
+	// 注册热键
+	RegisterHotKey(m_hWnd, 0x01, MOD_ALT, 67); // atl + c
 }
 void CMainWnd::OnPrepare(void)//完成时
 {
@@ -217,6 +220,18 @@ LRESULT CMainWnd::OnDocumentComplete(UINT uMsg, WPARAM wParam, LPARAM lParam, BO
 	if (!pView->IsAttached())//如果browser未加入container
 		pView->SetWindow((HWND)lParam);
 
+	return 1;
+}
+
+// 热键
+LRESULT CMainWnd::OnHotKey(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
+{
+	switch (wParam)
+	{
+	case 1:
+		SendMessage(WM_CLOSE);
+		break;
+	}
 	return 1;
 }
 

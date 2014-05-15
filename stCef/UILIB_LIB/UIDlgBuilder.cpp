@@ -502,6 +502,7 @@ namespace UILIB_LIB
 					pControl = new CHtmlCtrlUI;
 					pManager->m_aActivexs.Add(pControl);
 				}
+				else if (_tcscmp(pstrClass, _T("RichEdit")) == 0)		  pControl = new CRichEditUI;
 				break;
 			case 9:
 				if (_tcscmp(pstrClass, _T("Container")) == 0)              pControl = new CContainerUI;

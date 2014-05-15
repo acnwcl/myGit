@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include "UIDelegate.h"
 #include <atlcomcli.h>
 /////////////////////////////////////////////////////////////////////////////////////
 //
@@ -344,7 +345,11 @@ namespace UILIB_LIB
 		LPCTSTR GetSkn();
 		void RemoveSkn(void);
 		CStdPtrArray m_aActivexs;
-	};
+
+		void SetCapture();
+		void CPaintManagerUI::ReleaseCapture();
+		bool CPaintManagerUI::IsCaptured();
+};
 
 
 	/////////////////////////////////////////////////////////////////////////////////////
@@ -369,6 +374,14 @@ namespace UILIB_LIB
 		virtual CPaintManagerUI* GetManager() const;
 		virtual void SetManager(CPaintManagerUI* pManager, CControlUI* pParent);
 		virtual CControlUI* GetParent() const;
+
+		CEventSource OnEvent;
+		virtual void Event(TEventUI& event);
+		virtual void DoEvent(TEventUI& event);
+
+		// 菜单
+		virtual bool IsContextMenuUsed() const;
+		virtual void SetContextMenuUsed(bool bMenuUsed);
 
 		// 文本相关
 		virtual CStdString GetText() const;
@@ -452,8 +465,6 @@ namespace UILIB_LIB
 		void NeedUpdate();
 		void NeedParentUpdate();
 
-		virtual void Event(TEventUI& event);
-
 		virtual void SetAttribute(LPCTSTR pstrName, LPCTSTR pstrValue);
 		CControlUI* ApplyAttributeList(LPCTSTR pstrList);
 
@@ -465,6 +476,7 @@ namespace UILIB_LIB
 		virtual void PaintStatusImage(HDC hDC);
 		virtual void PaintText(HDC hDC);
 		virtual void PaintBorder(HDC hDC);
+
 
 		virtual void DoPostPaint(HDC hDC, const RECT& rcPaint);
 
@@ -486,6 +498,7 @@ namespace UILIB_LIB
 		bool m_bFocused;
 		bool m_bFloat;
 		bool m_bFloatSetPos; // 防止SetPos循环调用
+		bool m_bMenuUsed;
 		TRelativePosUI m_tRelativePos;
 
 		CStdString m_sText;

@@ -57,6 +57,7 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)UILIB_LIB\;$(SolutionDir)include\cef\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <CompileAs>CompileAsCpp</CompileAs>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -138,7 +139,9 @@
     <None Include="images\AddFile.exe" />
     <None Include="images\buttons.png" />
     <None Include="images\little.png" />
-    <None Include="images\main.xml" />
+    <None Include="images\main.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="images\menu.png" />
     <None Include="images\menumark.png" />
     <None Include="images\x.ini" />

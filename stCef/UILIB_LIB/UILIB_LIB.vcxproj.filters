@@ -60,6 +60,12 @@
     <ClCompile Include="UIRender.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="UIRichEdit.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UIDelegate.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MenuUI.h">
@@ -108,6 +114,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="UIRender.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UIRichEdit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UIDelegate.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

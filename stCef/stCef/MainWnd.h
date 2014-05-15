@@ -49,6 +49,9 @@ public:
 	//browser
 	LRESULT OnDocumentComplete(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
 
+	//ÈÈ¼ü
+	LRESULT OnHotKey(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled);
+
 	BEGIN_MSG_MAP_DIRECT(this)
 		MESSAGE_HANDLER_DIRECT(WM_CREATE, OnCreate)
 		MESSAGE_HANDLER_DIRECT(WM_CLOSE, OnClose)
@@ -65,6 +68,8 @@ public:
 		COMMAND_ID_HANDLER(ID_EXIT, OnExit)
 		//browser
 		MESSAGE_HANDLER_DIRECT(WM_BROWSERDOCUMENTCOMPLETE, OnDocumentComplete)
+		//ÈÈ¼ü
+		MESSAGE_HANDLER_DIRECT(WM_HOTKEY, OnHotKey)
 	END_MSG_MAP_DIRECT
 
 	////////////////////////////////////////////////////////////////////////////////////

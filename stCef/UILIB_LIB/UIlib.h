@@ -16,6 +16,7 @@
 #include "UIComonControls.h"
 #include "UIActiveX.h"
 #include "UIHtmlCtrl.h"
+#include "UIRichEdit.h"
 
 #include "UIMarkup.h"
 #include "UIDlgBuilder.h"
